@@ -1,2 +1,2 @@
 # FDG-NeuroSegmenter
-Automatic anatomical segmentation of brain [18F]FDG PET
+<b>Automatic anatomical segmentation of brain [<sup>18</sup>F]FDG PET
