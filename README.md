@@ -27,35 +27,124 @@ with the suffix `_FDG-NeuroSegmenter`.
 
 Label correspondence is stored in `label_correspondence.csv` and displayed below:
 
-| Label (L, R)<sup>*</sup> | Anatomical Structure         |
-|:------------------------:|:-----------------------------|
-|           1, 2           | Superior Frontal Gyrus       |
-|           3, 4           | Orbitofrontal Cortex         |
-|           5, 6           | Dorsolateral Frontal Cortex  |
-|           7, 8           | Paracentral Lobule           |
-|          9, 10           | Postcentral Gyrus            |
-|          11, 12          | Dorsolateral Parietal Cortex |
-|          13, 14          | Precuneus                    |
-|          15, 16          | Anterior Cingulate Cortex    |
-|          17, 18          | Posterior Cingulate Cortex   |
-|          19, 20          | Isthmus Cingulate Cortex     |
-|          21, 22          | Lateral Temporal Cortex      |
-|          23, 24          | Mesial Temporal Cortex       |
-|          25, 26          | Lateral Occipital Cortex     |
-|          27, 28          | Pericalcarine Cortex         |
-|          29, 30          | Lingual Gyrus                |
-|          31, 32          | Cuneus                       |
-|          33, 34          | Insula                       |
-|          35, 36          | Cerebellar Cortex            |
-|          37, 38          | Thalamus                     |
-|          39, 40          | Caudate                      |
-|          41, 42          | Putamen                      |
-|          43, 44          | Globus Pallidus              |
-|            45            | Brainstem (w/o Pons)         |
-|            46            | Pons                         |
-|          47, 48          | Hippocampus                  |
-|          49, 50          | Amygdala                     |
-|          51, 52          | Ventral Diencephalon         |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="125px" align="center">Label IDs (L, R)</th>
+      <th align="left">Anatomical Structure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">1, 2</td>
+      <td align="left">Superior Frontal Gyrus</td>
+    </tr>
+    <tr>
+      <td align="center">3, 4</td>
+      <td align="left">Orbitofrontal Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">5, 6</td>
+      <td align="left">Dorsolateral Frontal Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">7, 8</td>
+      <td align="left">Paracentral Lobule</td>
+    </tr>
+    <tr>
+      <td align="center">9, 10</td>
+      <td align="left">Postcentral Gyrus</td>
+    </tr>
+    <tr>
+      <td align="center">11, 12</td>
+      <td align="left">Dorsolateral Parietal Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">13, 14</td>
+      <td align="left">Precuneus</td>
+    </tr>
+    <tr>
+      <td align="center">15, 16</td>
+      <td align="left">Anterior Cingulate Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">17, 18</td>
+      <td align="left">Posterior Cingulate Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">19, 20</td>
+      <td align="left">Isthmus Cingulate Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">21, 22</td>
+      <td align="left">Lateral Temporal Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">23, 24</td>
+      <td align="left">Mesial Temporal Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">25, 26</td>
+      <td align="left">Lateral Occipital Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">27, 28</td>
+      <td align="left">Pericalcarine Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">29, 30</td>
+      <td align="left">Lingual Gyrus</td>
+    </tr>
+    <tr>
+      <td align="center">31, 32</td>
+      <td align="left">Cuneus</td>
+    </tr>
+    <tr>
+      <td align="center">33, 34</td>
+      <td align="left">Insula</td>
+    </tr>
+    <tr>
+      <td align="center">35, 36</td>
+      <td align="left">Cerebellar Cortex</td>
+    </tr>
+    <tr>
+      <td align="center">37, 38</td>
+      <td align="left">Thalamus</td>
+    </tr>
+    <tr>
+      <td align="center">39, 40</td>
+      <td align="left">Caudate</td>
+    </tr>
+    <tr>
+      <td align="center">41, 42</td>
+      <td align="left">Putamen</td>
+    </tr>
+    <tr>
+      <td align="center">43, 44</td>
+      <td align="left">Globus Pallidus</td>
+    </tr>
+    <tr>
+      <td align="center">45</td>
+      <td align="left">Brainstem Wo Pons</td>
+    </tr>
+    <tr>
+      <td align="center">46</td>
+      <td align="left">Pons</td>
+    </tr>
+    <tr>
+      <td align="center">47, 48</td>
+      <td align="left">Hippocampus</td>
+    </tr>
+    <tr>
+      <td align="center">49, 50</td>
+      <td align="left">Amygdala</td>
+    </tr>
+    <tr>
+      <td align="center">51, 52</td>
+      <td align="left">Ventral Diencephalon</td>
+    </tr>
+  </tbody>
+</table>
 <sup>*</sup> For all paired anatomical structures (left and right hemispheres), odd labels refer to the left hemisphere 
 (L) and even labels to the right hemisphere (R). Single labels (45 and 46) represent non-lateralised or singular structures.
 
