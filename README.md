@@ -30,8 +30,8 @@ Label correspondence is stored in `label_correspondence.csv` and displayed below
 <table width="100%">
   <thead>
     <tr>
-      <th width="125px" align="center">Label IDs (L, R)</th>
-      <th align="left">Anatomical Structure</th>
+      <th>Label IDs (L, R)<sup>*</sup></th>
+      <th>Anatomical Structure</th>
     </tr>
   </thead>
   <tbody>
