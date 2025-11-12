@@ -156,12 +156,21 @@ Label correspondence is stored in `resources/label_correspondence.csv` and displ
 
 ### Quantification ⟶ `quantifier.py`
 
-To perform the smi-quantitative assessment of [<sup>18</sup>F]FDG PET images, run `quantifier.py`. You will be 
+To perform the semi-quantitative assessment of [<sup>18</sup>F]FDG PET images, run `quantifier.py`. You will be 
 asked to provide the path to the images (in NIfTI format!) which to quantify. There is no need to pre-process or 
 re-organise data. If the segmentation folder is not found, segmentation will be performed and the outputs stored in a 
-folder created next to the dataset folder, with the suffix `_FDG-NeuroSegmenter`. Pons-based SUVR normalisation will be 
-applied to each image for quantification purposes. The output quantification files will be stored in a folder created 
-next to the dataset folder, with the suffix `_FDG-NeuroSegmenter_quantification`.
+folder created next to the dataset folder, with the suffix `_FDG-NeuroSegmenter`. Pons-based SUVR normalisation<sup>**</sup> 
+will be applied to each image for quantification purposes. The output quantification files will be stored in a folder 
+created next to the dataset folder, with the suffix `_FDG-NeuroSegmenter_quantification`. 
+
+Each quantification file stores:
+- `SUVRmean`: the SUVR<sub>mean</sub> in the respective anatomical region for the given [<sup>18</sup>F]FDG PET image.
+- `zscore`: the z-score of `SUVRmean` relative to the cognitively normal cohort.
+- `percentile`: the percentile in which `SUVRmean` is placed relative to the SUVR<sub>mean</sub> distribution of that anatomical region in 
+the cognitively normal cohort.
+
+<sup>**</sup> <small>By default, an erosion filter (spherical kernel of 3 mm radius) is applied to the segmentation of 
+the pons, to minimise the contribution of background/vicinity signal to the normalisation constant.</small>
 
 ## Acknowledgements
 
