@@ -3,6 +3,12 @@
 
 <img src="/figures/fdg_brain_segmentation.png" alt="[18F]FDG PET brain anatomical segmentation" style="max-width: 95%; height: auto;">
 
+1628 brain [<sup>18</sup>F]FDG PET studies of 1099 subjects with and without cognitive impairments were used to [train 
+and test](https://github.com/MIC-DKFZ/nnUNet) a deep-learning-based anatomical segmentation model. Ground-truth 
+segmentations were obtained on the respectively paired T1-weighted MRI studies using 
+[FastSurfer](https://github.com/Deep-MI/FastSurfer). All images belong to different neuroimaging initiatives 
+(please refer to the [Acknowledgements](#acknowledgements) section for more information).
+
 ## Installation & Usage
 P.S.: Using a virtual environment is recommended! (Git Bash: `source <path-to-venv>/Scripts/activate` - Windows)
 
@@ -25,7 +31,7 @@ asked to provide the path to the images (in NIfTI format!) for which to perform 
 pre-process or re-organise data. The output segmentations will be stored in a folder created next to the dataset folder,
 with the suffix `_FDG-NeuroSegmenter`.
 
-Label correspondence is stored in `label_correspondence.csv` and displayed below:
+Label correspondence is stored in `resources/label_correspondence.csv` and displayed below:
 
 <table>
   <thead>
@@ -125,7 +131,7 @@ Label correspondence is stored in `label_correspondence.csv` and displayed below
     </tr>
     <tr>
       <td align="center">45</td>
-      <td align="left">Brainstem Wo Pons</td>
+      <td align="left">Brainstem w/o Pons</td>
     </tr>
     <tr>
       <td align="center">46</td>
@@ -148,9 +154,14 @@ Label correspondence is stored in `label_correspondence.csv` and displayed below
 <sup>*</sup> <small>For all paired anatomical structures (left and right hemispheres), odd labels refer to the left hemisphere 
 (L) and even labels to the right hemisphere (R). Single labels (45 and 46) represent non-lateralised or singular structures.</small>
 
-### Quantification
+### Quantification ⟶ `quantifier.py`
 
-WIP
+To perform the smi-quantitative assessment of [<sup>18</sup>F]FDG PET images, run `quantifier.py`. You will be 
+asked to provide the path to the images (in NIfTI format!) which to quantify. There is no need to pre-process or 
+re-organise data. If the segmentation folder is not found, segmentation will be performed and the outputs stored in a 
+folder created next to the dataset folder, with the suffix `_FDG-NeuroSegmenter`. Pons-based SUVR normalisation will be 
+applied to each image for quantification purposes. The output quantification files will be stored in a folder created 
+next to the dataset folder, with the suffix `_FDG-NeuroSegmenter_quantification`.
 
 ## Acknowledgements
 
