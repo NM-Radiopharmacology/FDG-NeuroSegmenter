@@ -27,10 +27,10 @@ with the suffix `_FDG-NeuroSegmenter`.
 
 Label correspondence is stored in `label_correspondence.csv` and displayed below:
 
-<table width="100%">
+<table>
   <thead>
     <tr>
-      <th>Label IDs (L, R)<sup>*</sup></th>
+      <th>Label (L, R)<sup>*</sup></th>
       <th>Anatomical Structure</th>
     </tr>
   </thead>
@@ -145,8 +145,8 @@ Label correspondence is stored in `label_correspondence.csv` and displayed below
     </tr>
   </tbody>
 </table>
-<sup>*</sup> For all paired anatomical structures (left and right hemispheres), odd labels refer to the left hemisphere 
-(L) and even labels to the right hemisphere (R). Single labels (45 and 46) represent non-lateralised or singular structures.
+<sup>*</sup> <small>For all paired anatomical structures (left and right hemispheres), odd labels refer to the left hemisphere 
+(L) and even labels to the right hemisphere (R). Single labels (45 and 46) represent non-lateralised or singular structures.</small>
 
 ### Quantification
 
