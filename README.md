@@ -182,6 +182,8 @@ the pons, to minimise the contribution of background/vicinity signal to the norm
 - [National Alzheimer's Coordinating Center (NACC):  Standardized Centralized Alzheimer’s & Related Dementias 
 Neuroimaging (SCAN)](https://scan.naccdata.org/)
 
+For more information click [here](ACKNOWLEDGEMENTS.md).
+
 #### Methods
 - [nnU-Net](https://github.com/MIC-DKFZ/nnUNet) ([Isensee & Jaeger et al. (2021)](https://www.nature.com/articles/s41592-020-01008-z)) - 
 used for training and inference of the segmentation models
