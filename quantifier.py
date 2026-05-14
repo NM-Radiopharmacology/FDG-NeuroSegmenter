@@ -1,5 +1,4 @@
 import sys
-
 import itk
 import pandas as pd
 import scipy
@@ -18,8 +17,11 @@ while input_path is None:
 if not os.path.isdir(input_path + '_FDG-NeuroSegmenter'):
     seg_path = None
 else:
-    printdt("segmentations found")
     seg_path = input_path + '_FDG-NeuroSegmenter'
+    if len(os.listdir(seg_path)) == 0:
+        seg_path = None
+    else:
+        printdt("segmentation folder found & not empty")
 
 if seg_path is None:
     print("No segmentation folder found for quantification!")

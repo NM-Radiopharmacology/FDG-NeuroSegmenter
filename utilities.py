@@ -159,10 +159,10 @@ def pons_normalisation(arr, pons_seg, erode=True):
 
     if erode:
         # pons erosion (to avoid including vicinity zeroes)
-        from skimage.morphology import binary_erosion
+        from skimage.morphology import erosion
         krnl_sz = get_kernel_size_in_voxels(voxel_physical_size=[1.5, 1.5, 1.5], size_in_mm=8)
         krnl = get_spherical_kernel(kernel_size=krnl_sz, voxel_physical_size=[1.5, 1.5, 1.5])
-        pons_seg = binary_erosion(pons_seg, footprint=krnl) * 1.0
+        pons_seg = erosion(pons_seg, footprint=krnl) * 1.0
 
     pons_mean = np.mean(arr[pons_seg != 0])
 
