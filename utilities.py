@@ -41,7 +41,7 @@ def run_segmenter(input_path):
     printdt("running predictions...")
     command = (f"set nnUNet_raw=''&&set nnUNet_preprocessed=''&&"
                f"set nnUNet_results={os.path.join(os.getcwd(), 'models')}&&"
-               f"nnUNetv2_predict -i {temp_path} -o {output_path} -d 505 -c 3d_fullres -step_size 0.2")
+               f"nnUNetv2_predict -i {temp_path} -o {output_path} -d 505 -c 3d_fullres -step_size 0.15")
     if cpu:
         command = command + " -device cpu --disable_tta"
     return_code = os.system(command)
