@@ -4,6 +4,12 @@ import sys
 import shutil
 import numpy as np
 import itk
+from importlib import resources
+
+
+def get_package_data_path(filename):
+    with resources.path('fdg_neurosegmenter.data', filename) as path:
+        return str(path)
 
 
 def printdt(*args):
@@ -40,7 +46,7 @@ def run_segmenter(input_path):
 
     printdt("running predictions...")
     command = (f"set nnUNet_raw=''&&set nnUNet_preprocessed=''&&"
-               f"set nnUNet_results={os.path.join(os.getcwd(), 'models')}&&"
+               f"set nnUNet_results={os.path.join(os.getcwd(), '../../models')}&&"
                f"nnUNetv2_predict -i {temp_path} -o {output_path} -d 505 -c 3d_fullres -step_size 0.15")
     if cpu:
         command = command + " -device cpu --disable_tta"
