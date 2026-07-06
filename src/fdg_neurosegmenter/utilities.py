@@ -27,6 +27,10 @@ def run_segmenter(input_path):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
+    package_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.abspath(os.path.join(package_dir, "..", "..", ".."))
+    models_dir = os.path.join(repo_root, "models")
+
     printdt("pre-processing images...")
     img_files = [f for f in os.listdir(input_path) if f.endswith('.nii.gz')]
     if len(img_files) == 0:
@@ -46,7 +50,7 @@ def run_segmenter(input_path):
 
     printdt("running predictions...")
     command = (f"set nnUNet_raw=''&&set nnUNet_preprocessed=''&&"
-               f"set nnUNet_results={os.path.join(os.getcwd(), '../../models')}&&"
+               f"set nnUNet_results={models_dir}&&"
                f"nnUNetv2_predict -i {temp_path} -o {output_path} -d 505 -c 3d_fullres -step_size 0.15")
     if cpu:
         command = command + " -device cpu --disable_tta"
