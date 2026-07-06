@@ -16,7 +16,7 @@ def printdt(*args):
     print(datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S"), *args)
 
 
-def run_segmenter(input_path):
+def run_segmenter(input_path, fast_mode=False):
     import torch
     cpu = not torch.cuda.is_available()
 
@@ -73,6 +73,8 @@ def run_segmenter(input_path):
                f"nnUNetv2_predict -i {temp_path} -o {output_path} -d 505 -c 3d_fullres -step_size 0.15")
     if cpu:
         command = command + " -device cpu --disable_tta"
+    if fast_mode:
+        command = command + " -f 0"
     return_code = os.system(command)
     if return_code == 0:
         for i, img_file in enumerate(sorted(img_files)):

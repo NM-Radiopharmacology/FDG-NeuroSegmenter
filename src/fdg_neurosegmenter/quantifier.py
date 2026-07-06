@@ -21,9 +21,14 @@ def main():
         required=True,
         help="Path to the directory containing input NIfTI brain FDG PET images"
     )
+    parser.add_argument(
+        "--fast",
+        action="store_true",  # This makes it a boolean switch (True if present, False if absent)
+        help="Run in fast mode using only a single fold (0) instead of ensembling all 5 folds."
+    )
+
     args = parser.parse_args()
     input_path = args.input
-
     if not os.path.isdir(input_path):
         print(f"Error: {input_path} is not a directory")
         sys.exit(1)
@@ -33,7 +38,7 @@ def main():
     seg_path = input_path + '_FDG-NeuroSegmenter'
     if not os.path.isdir(seg_path) or len(os.listdir(seg_path)) == 0:
         print("No segmentation folder found for quantification! Running segmenter first...")
-        return_code = run_segmenter(input_path)
+        return_code = run_segmenter(input_path, fast_mode=args.fast)
         if return_code != 0:
             print("Unable to run segmenter. Exiting...")
             sys.exit(return_code)
