@@ -19,7 +19,7 @@ def main():
     parser.add_argument(
         "-i", "--input",
         required=True,
-        help="Path to the directory containing input NIfTI brain images"
+        help="Path to the directory containing input NIfTI brain FDG PET images"
     )
     args = parser.parse_args()
     input_path = args.input
@@ -40,6 +40,7 @@ def main():
         printdt("Segmentations completed successfully")
 
     # --------------------------------------------------------------------------------------------------- quantification
+    print('=' * (80 - (len('FDG-NeuroQuantifier') + 1)) + ' ' + str('FDG-NeuroQuantifier'))
     printdt("quantifying...")
     output_path = seg_path + '_quantification'
 

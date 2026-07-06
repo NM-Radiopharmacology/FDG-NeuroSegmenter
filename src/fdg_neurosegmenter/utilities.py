@@ -27,9 +27,28 @@ def run_segmenter(input_path):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
-    package_dir = os.path.dirname(os.path.abspath(__file__))
-    repo_root = os.path.abspath(os.path.join(package_dir, "..", "..", ".."))
-    models_dir = os.path.join(repo_root, "models")
+    # defining nnUNet_results environment variable / making sure models folder is found
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    models_dir = None
+    while True:
+        possible_models = os.path.join(current_dir, "models")
+        if os.path.isdir(possible_models):
+            models_dir = possible_models
+            break
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir:
+            break
+        current_dir = parent
+    if not models_dir:
+        models_dir = os.path.join(os.getcwd(), "models")
+    expected_dataset_path = os.path.join(models_dir, "Dataset505_FDGNeuroSeg")
+    if not os.path.isdir(expected_dataset_path):
+        print("\n" + "!" * 80)
+        print("ERROR: Models could not be found!")
+        print(f"Expected to find 'Dataset505_FDGNeuroSeg' inside: {models_dir}")
+        print("\nFix configurations or ensure your local 'models/' directory is in the root folder.")
+        print("!" * 80 + "\n")
+        return 1
 
     printdt("pre-processing images...")
     img_files = [f for f in os.listdir(input_path) if f.endswith('.nii.gz')]

@@ -12,7 +12,7 @@ def main():
     parser.add_argument(
         "-i", "--input",
         required=True,
-        help="Path to the directory containing input NIfTI brain images"
+        help="Path to the directory containing input NIfTI brain FDG PET images"
     )
 
     args = parser.parse_args()
