@@ -1,10 +1,13 @@
 # FDG-NeuroSegmenter
-<b>Automatic segmentation of 52 anatomical regions in brain [<sup>18</sup>F]FDG PET</b>
+<b>FDG-NeuroSegmenter</b> is a deep-learning-based model developed to perform the automatic segmentation of 52 
+anatomical regions in brain [<sup>18</sup>F]FDG PET images.
+
+Please cite [REF!]
 
 <img src="/figures/fdg_brain_segmentation.png" alt="[18F]FDG PET brain anatomical segmentation" style="max-width: 95%; height: auto;">
 
-1628 brain [<sup>18</sup>F]FDG PET studies of 1099 subjects with and without cognitive impairments were used to [train 
-and test](https://github.com/MIC-DKFZ/nnUNet) a deep-learning-based anatomical segmentation model. Ground-truth 
+1736 brain [<sup>18</sup>F]FDG PET studies of 1197 subjects with and without cognitive impairments were used to train 
+and test a deep-learning-based anatomical segmentation model ([nnU-Net](https://github.com/MIC-DKFZ/nnUNet)). Ground-truth 
 segmentations were obtained on the respectively paired T1-weighted MRI studies using 
 [FastSurfer](https://github.com/Deep-MI/FastSurfer). All images belong to different neuroimaging initiatives 
 (please refer to the [Acknowledgements](#acknowledgements) section for more information).
