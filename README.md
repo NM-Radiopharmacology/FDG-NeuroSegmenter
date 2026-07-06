@@ -13,7 +13,7 @@ segmentations were obtained on the respectively paired T1-weighted MRI studies u
 (please refer to the [Acknowledgements](#acknowledgements) section for more information).
 
 ## Installation & Usage
-P.S.: Using a virtual environment is recommended! (Git Bash: `source <path-to-venv>/Scripts/activate` - Windows)
+Using a virtual environment is recommended! (Git Bash: `source <path-to-venv>/Scripts/activate` - Windows)
 
 **PyTorch must be installed beforehand!!** 
 [Refer to their website and install PyTorch](https://pytorch.org/get-started/locally/) with support for your hardware 
@@ -24,17 +24,26 @@ Only then (on Git Bash):
 ```
 git clone https://github.com/NM-Radiopharmacology/FDG-NeuroSegmenter.git
 cd FDG-NeuroSegmenter
-pip install -r requirements.txt
+pip install .
 ```
 
-### Anatomical Segmentation ⟶ `apply_segmenter.py`
+### Anatomical Segmentation ⟶ `fdg-neurosegmenter`
 
-To perform the anatomical segmentation of [<sup>18</sup>F]FDG PET images, simply run `apply_segmenter.py`. You will be 
-asked to provide the path to the images (in NIfTI format!) for which to perform segmentation. There is no need to 
-pre-process or re-organise data. The output segmentations will be stored in a folder created next to the dataset folder,
-with the suffix `_FDG-NeuroSegmenter`.
+To perform the anatomical segmentation of [<sup>18</sup>F]FDG PET images, simply run:
+```
+fdg-neurosegmenter -i /path/to/your/dataset_folder
+```
 
-Label correspondence is stored in `resources/label_correspondence.csv` and displayed below:
+Options:
+
+- `-i`, `--input`: path to the directory containing your NIfTI brain [<sup>18</sup>F]FDG PET images
+- `--fast`: runs inference using only a single fold (fold 0) instead of ensembling all 5 folds. Highly recommended for 
+fast previews or restricted compute environments.
+
+There is no need to pre-process or re-organise data. The output segmentations will be stored in a folder created next to
+ the dataset folder, with the suffix `_FDG-NeuroSegmenter`.
+
+Label correspondence is stored in [`label_correspondence.csv`](src/fdg_neurosegmenter/data/label_correspondence.csv) and displayed below:
 
 <table>
   <thead>
@@ -157,14 +166,24 @@ Label correspondence is stored in `resources/label_correspondence.csv` and displ
 <sup>*</sup> <small>For all paired anatomical structures (left and right hemispheres), odd labels refer to the left hemisphere 
 (L) and even labels to the right hemisphere (R). Single labels (45 and 46) represent non-lateralised or singular structures.</small>
 
-### Quantification ⟶ `quantifier.py`
+### Quantification ⟶ `fdg-neuroquantifier`
 
-To perform the semi-quantitative assessment of [<sup>18</sup>F]FDG PET images, run `quantifier.py`. You will be 
-asked to provide the path to the images (in NIfTI format!) which to quantify. There is no need to pre-process or 
-re-organise data. If the segmentation folder is not found, segmentation will be performed and the outputs stored in a 
-folder created next to the dataset folder, with the suffix `_FDG-NeuroSegmenter`. Pons-based SUVR normalisation<sup>1</sup> 
-will be applied to each image for quantification purposes. The output quantification files will be stored in a folder 
-created next to the dataset folder, with the suffix `_FDG-NeuroSegmenter_quantification`. 
+To perform the semi-quantitative assessment of [<sup>18</sup>F]FDG PET images, run:
+```
+fdg-neuroquantifier -i /path/to/your/dataset_folder
+```
+
+Options:
+
+- `-i`, `--input`: path to the directory containing your NIfTI brain [<sup>18</sup>F]FDG PET images
+- `--fast`: runs inference using only a single fold (fold 0) instead of ensembling all 5 folds. Highly recommended for 
+fast previews or restricted compute environments.
+
+There is no need to pre-process or re-organise data. If the segmentation folder is not found, segmentation will be 
+performed and the outputs stored in a folder created next to the dataset folder, with the suffix `_FDG-NeuroSegmenter`. 
+Pons-based SUVR normalisation<sup>1</sup> will be applied to each image for quantification purposes. The output 
+quantification files will be stored in a folder created next to the dataset folder, with the suffix 
+`_FDG-NeuroSegmenter_quantification`. 
 
 Each quantification file stores:
 - `SUVRmean`: the SUVR<sub>mean</sub> in the respective anatomical region for the given [<sup>18</sup>F]FDG PET image.
