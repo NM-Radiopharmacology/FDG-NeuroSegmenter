@@ -27,8 +27,6 @@ def main():
         sys.exit(1)
 
     print('=' * (80 - (len('FDG-NeuroSegmenter') + 1)) + ' ' + str('FDG-NeuroSegmenter'))
-    if args.fast:
-        print("⚡ Fast mode enabled! Processing via single-fold inference.")
 
     non_gz_files = [f_ for f_ in os.listdir(input_path) if f_.endswith('.nii')]
     for f_ in non_gz_files:

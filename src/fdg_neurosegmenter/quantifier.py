@@ -36,13 +36,17 @@ def main():
     # ----------------------------------------------------------------------------------------------------- segmentation
     seg_path = input_path + '_FDG-NeuroSegmenter'
     if not os.path.isdir(seg_path) or len(os.listdir(seg_path)) == 0:
-        print("No segmentation folder found for quantification! Running segmenter first...")
+        printdt("No segmentation folder found for quantification! Running segmenter first...")
         print('=' * (80 - (len('FDG-NeuroSegmenter') + 1)) + ' ' + str('FDG-NeuroSegmenter'))
         return_code = run_segmenter(input_path, fast_mode=args.fast)
         if return_code != 0:
-            print("Unable to run segmenter. Exiting...")
+            printdt("Unable to run segmenter. Exiting...")
             sys.exit(return_code)
         printdt("Segmentations completed successfully")
+    else:
+        print("Segmentations found")
+        if args.fast:
+            print("Fast mode enabled but segmentation won't be performed!")
 
     # --------------------------------------------------------------------------------------------------- quantification
     print('=' * (80 - (len('FDG-NeuroQuantifier') + 1)) + ' ' + str('FDG-NeuroQuantifier'))

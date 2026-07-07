@@ -50,6 +50,9 @@ def run_segmenter(input_path, fast_mode=False):
         print("!" * 80 + "\n")
         return 1
 
+    if fast_mode:
+        print("⚡ Fast mode enabled! Processing via single-fold inference.")
+
     printdt("pre-processing images...")
     img_files = [f for f in os.listdir(input_path) if f.endswith('.nii.gz')]
     if len(img_files) == 0:
