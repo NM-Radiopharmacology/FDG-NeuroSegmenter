@@ -46,7 +46,7 @@ def main():
     else:
         print("Segmentations found")
         if args.fast:
-            print("Fast mode enabled but segmentation won't be performed!")
+            print("Fast mode enabled but segmentation needn't be performed!")
 
     # --------------------------------------------------------------------------------------------------- quantification
     print('=' * (80 - (len('FDG-NeuroQuantifier') + 1)) + ' ' + str('FDG-NeuroQuantifier'))
