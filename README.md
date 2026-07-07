@@ -176,8 +176,8 @@ fdg-neuroquantifier -i /path/to/your/dataset_folder
 Options:
 
 - `-i`, `--input`: path to the directory containing your NIfTI brain [<sup>18</sup>F]FDG PET images
-- `--fast`: runs inference using only a single fold (fold 0) instead of ensembling all 5 folds. Highly recommended for 
-fast previews or restricted compute environments.
+- `--fast`: runs inference (if needed) using only a single fold (fold 0) instead of ensembling all 5 folds. Highly 
+recommended for fast previews or restricted compute environments.
 
 There is no need to pre-process or re-organise data. If the segmentation folder is not found, segmentation will be 
 performed and the outputs stored in a folder created next to the dataset folder, with the suffix `_FDG-NeuroSegmenter`. 
