@@ -28,7 +28,8 @@ pip install .
 ```
 
 ‼️ If you prefer to employ FDG-NeuroSegmenter using [nnU-Net](https://github.com/MIC-DKFZ/nnUNet)'s framework directly, 
-you can find the models [here](models/Dataset505_FDGNeuroSeg).
+you can download the models by clicking 
+[here](https://huggingface.co/NM-Rph/FDG-NeuroSegmenter/resolve/main/Dataset505_FDGNeuroSeg.zip).
 
 ### Anatomical Segmentation ⟶ `fdg-neurosegmenter`
 
