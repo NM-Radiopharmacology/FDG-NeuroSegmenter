@@ -42,9 +42,9 @@ def main():
         if return_code != 0:
             printdt("Unable to run segmenter. Exiting...")
             sys.exit(return_code)
-        printdt("Segmentations completed successfully")
+        printdt("segmentations completed successfully")
     else:
-        print("Segmentations found")
+        print("segmentation folder found")
         if args.fast:
             print("Fast mode enabled but segmentation needn't be performed!")
 
@@ -59,11 +59,14 @@ def main():
     label_correspondence = pd.read_csv(get_package_data_path("label_correspondence.csv"))
     label_correspondence.set_index("Label", inplace=True)
 
-    non_gz_files = [f_ for f_ in os.listdir(input_path) if f_.endswith('.nii')]
-    for f_ in non_gz_files:
-        itk.imwrite(itk.imread(os.path.join(input_path, f_)),
-                    os.path.join(input_path, f_.replace('.nii', '.nii.gz')))
-    img_files = [f for f in sorted(os.listdir(input_path)) if f.endswith('.nii.gz')]
+    supported_extensions = ('.nii.gz', '.nii', '.nrrd', '.mha')
+    img_files = [f for f in sorted(os.listdir(input_path)) if f.endswith(supported_extensions)]
+    if len(img_files) == 0:
+        print(f"no supported image formats in {input_path}! Supported formats: .nii.gz, .nii, .nrrd, .mha")
+        sys.exit(0)
+    elif len(img_files) < len(os.listdir(input_path)):
+        print(f"! not all files in {input_path} are supported! Supported formats: .nii.gz, .nii, .nrrd, .mha")
+
     for img_file in img_files:
         quantification = {
             'AnatomicalStruct': [],
@@ -74,7 +77,11 @@ def main():
 
         img = itk.imread(os.path.join(input_path, img_file))
         img = resample_volume(img, [1.5, 1.5, 1.5])
-        seg_file = img_file.replace('.nii', '_FDGNeuroSeg.nii')
+        seg_file = img_file[:-7] + '_seg.nii.gz'
+        for fext in supported_extensions:
+            if img_file.endswith(fext):
+                seg_file = img_file[:-len(fext)] + '_seg.nii.gz'
+                break
 
         if not os.path.isfile(os.path.join(seg_path, seg_file)):
             print(f"segmentation of {img_file} not found! skipping...")
@@ -108,9 +115,6 @@ def main():
         if not os.path.exists(output_path):
             os.makedirs(output_path)
         quantification_df.to_csv(os.path.join(output_path, img_file.split('.')[0] + '_FDGNeuroSeg-quant.csv'), index=False)
-
-    for f_ in non_gz_files:
-        os.remove(os.path.join(input_path, f_.replace('.nii', '.nii.gz')))
 
 
 if __name__ == "__main__":

@@ -54,10 +54,13 @@ def run_segmenter(input_path, fast_mode=False):
         print("⚡ Fast mode enabled! Processing via single-fold inference.")
 
     printdt("pre-processing images...")
-    img_files = [f for f in os.listdir(input_path) if f.endswith('.nii.gz')]
+    supported_extensions = ('.nii.gz', '.nii', '.nrrd', '.mha')
+    img_files = [f for f in os.listdir(input_path) if f.endswith(supported_extensions)]
     if len(img_files) == 0:
-        print(f"no NIfTI images in {input_path}!")
+        print(f"no supported image formats in {input_path}! Supported formats: .nii.gz, .nii, .nrrd, .mha")
         sys.exit(0)
+    elif len(img_files) < len(os.listdir(input_path)):
+        print(f"! not all files in {input_path} are supported! Supported formats: .nii.gz, .nii, .nrrd, .mha")
     temp_path = input_path + '_FDG-NeuroSegmenter_temp'
     if not os.path.exists(temp_path):
         os.makedirs(temp_path)
@@ -65,10 +68,17 @@ def run_segmenter(input_path, fast_mode=False):
         shutil.rmtree(temp_path)
         os.makedirs(temp_path)
 
-    for i, img_file in enumerate(sorted(img_files)):
-        file_extension = img_file.replace(img_file.split('.')[0], '')
-        shutil.copy(os.path.join(input_path, img_file),
-                    os.path.join(temp_path, f"FDGNeuroSeg_{str(i).zfill(4)}_0000{file_extension}"))
+    for img_file in sorted(img_files):
+        if img_file.endswith('.nii.gz'):
+            temp_filename = img_file.replace('.nii.gz', f'_0000.nii.gz')
+            shutil.copy(os.path.join(input_path, img_file), os.path.join(temp_path, temp_filename))
+        else:   # images must be in the training format --> .nii.gz
+            for file_extension in ['.nii', '.nrrd', '.mha']:
+                if img_file.endswith(file_extension):
+                    temp_filename = img_file.replace(file_extension, f'_0000.nii.gz')
+                    # reading and writing in the correct format
+                    img = itk.imread(os.path.join(input_path, img_file))
+                    itk.imwrite(img, os.path.join(temp_path, temp_filename))
 
     printdt("running predictions...")
     command = (f"set nnUNet_raw=''&&set nnUNet_preprocessed=''&&"
@@ -80,12 +90,12 @@ def run_segmenter(input_path, fast_mode=False):
         command = command + " -f 0"
     return_code = os.system(command)
     if return_code == 0:
-        for i, img_file in enumerate(sorted(img_files)):
-            os.rename(os.path.join(output_path, f"FDGNeuroSeg_{str(i).zfill(4)}.nii.gz"),
-                      os.path.join(output_path, img_file.replace('.nii.gz', f'_FDGNeuroSeg.nii.gz')))
         to_remove = [f_ for f_ in os.listdir(output_path) if f_.endswith('.json')]
         for json_file in to_remove:
             os.remove(os.path.join(output_path, json_file))
+        for seg_file in os.listdir(output_path):  # adding _seg suffix
+            base_name = seg_file[:-7]
+            os.rename(os.path.join(output_path, seg_file), os.path.join(output_path, base_name + '_seg.nii.gz'))
 
     shutil.rmtree(temp_path)
     return return_code

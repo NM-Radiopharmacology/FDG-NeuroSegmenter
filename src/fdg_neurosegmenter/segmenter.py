@@ -28,14 +28,7 @@ def main():
 
     print('=' * (80 - (len('FDG-NeuroSegmenter') + 1)) + ' ' + str('FDG-NeuroSegmenter'))
 
-    non_gz_files = [f_ for f_ in os.listdir(input_path) if f_.endswith('.nii')]
-    for f_ in non_gz_files:
-        itk.imwrite(itk.imread(os.path.join(input_path, f_)),
-                    os.path.join(input_path, f_.replace('.nii', '.nii.gz')))
-
     run_segmenter(input_path, fast_mode=args.fast)
-    for f_ in non_gz_files:
-        os.remove(os.path.join(input_path, f_.replace('.nii', '.nii.gz')))
 
 if __name__ == "__main__":
     main()
