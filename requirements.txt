@@ -1,5 +1,0 @@
-torch
-nnunetv2
-itk~=5.4.0
-pandas~=2.2.2
-numpy~=1.26.4
