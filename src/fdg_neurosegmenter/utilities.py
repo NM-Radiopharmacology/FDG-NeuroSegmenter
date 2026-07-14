@@ -95,7 +95,7 @@ def run_segmenter(input_path, fast_mode=False):
             os.remove(os.path.join(output_path, json_file))
         for seg_file in os.listdir(output_path):  # adding _seg suffix
             base_name = seg_file[:-7]
-            os.rename(os.path.join(output_path, seg_file), os.path.join(output_path, base_name + '_seg.nii.gz'))
+            os.rename(os.path.join(output_path, seg_file), os.path.join(output_path, base_name + '_FDGNeuroSeg.nii.gz'))
 
     shutil.rmtree(temp_path)
     return return_code

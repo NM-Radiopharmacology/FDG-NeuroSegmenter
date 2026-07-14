@@ -77,10 +77,10 @@ def main():
 
         img = itk.imread(os.path.join(input_path, img_file))
         img = resample_volume(img, [1.5, 1.5, 1.5])
-        seg_file = img_file[:-7] + '_seg.nii.gz'
+        seg_file = img_file[:-7] + '_FDGNeuroSeg.nii.gz'
         for fext in supported_extensions:
             if img_file.endswith(fext):
-                seg_file = img_file[:-len(fext)] + '_seg.nii.gz'
+                seg_file = img_file[:-len(fext)] + '_FDGNeuroSeg.nii.gz'
                 break
 
         if not os.path.isfile(os.path.join(seg_path, seg_file)):
