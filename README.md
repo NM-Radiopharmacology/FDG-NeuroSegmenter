@@ -40,7 +40,7 @@ fdg-neurosegmenter -i /path/to/your/dataset_folder
 
 Options:
 
-- `-i`, `--input`: path to the directory containing your NIfTI brain [<sup>18</sup>F]FDG PET images
+- `-i`, `--input`: path to the directory containing your brain [<sup>18</sup>F]FDG PET images (NIfTI, NRRD, MetaImage)
 - `--fast`: runs inference using only a single fold (fold 0) instead of ensembling all 5 folds. Highly recommended for 
 fast previews or restricted compute environments.
 
@@ -179,7 +179,7 @@ fdg-neuroquantifier -i /path/to/your/dataset_folder
 
 Options:
 
-- `-i`, `--input`: path to the directory containing your NIfTI brain [<sup>18</sup>F]FDG PET images
+- `-i`, `--input`: path to the directory containing your brain [<sup>18</sup>F]FDG PET images (NIfTI, NRRD, MetaImage)
 - `--fast`: runs inference (if needed) using only a single fold (fold 0) instead of ensembling all 5 folds. Highly 
 recommended for fast previews or restricted compute environments.
 
