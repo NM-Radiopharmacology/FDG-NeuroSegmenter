@@ -7,19 +7,18 @@ Please cite [REF!]
 <img src="/figures/fdg_brain_segmentation.png" alt="[18F]FDG PET brain anatomical segmentation" style="max-width: 95%; height: auto;">
 
 1736 brain [<sup>18</sup>F]FDG PET studies of 1197 subjects with and without cognitive impairments were used to train 
-and test a deep-learning-based anatomical segmentation model ([nnU-Net](https://github.com/MIC-DKFZ/nnUNet)). Ground-truth 
-segmentations were obtained on the respectively paired T1-weighted MRI studies using 
+and test a deep-learning-based anatomical segmentation model via the [nnU-Net](https://github.com/MIC-DKFZ/nnUNet) 
+framework. Ground-truth segmentations were obtained on the respectively paired T1-weighted MRI studies using 
 [FastSurfer](https://github.com/Deep-MI/FastSurfer). All images belong to different neuroimaging initiatives 
 (please refer to the [Acknowledgements](#acknowledgements) section for more information).
 
 ## Installation & Usage
-Using a virtual environment is recommended! (Git Bash: `source <path-to-venv>/Scripts/activate` - Windows)
+‼️ Using a [virtual environment](https://docs.python.org/3/library/venv.html) is recommended!
 
-**PyTorch must be installed beforehand!!** 
-[Refer to their website and install PyTorch](https://pytorch.org/get-started/locally/) with support for your hardware 
-([CUDA](https://developer.nvidia.com/cuda-toolkit), CPU).
+‼️ **PyTorch must be installed beforehand for [CUDA](https://developer.nvidia.com/cuda-toolkit) support!!** 
+[Refer to their website and install PyTorch](https://pytorch.org/get-started/locally/) with support for your hardware.
 
-Only then (on Git Bash):
+Only then:
 
 ```
 git clone https://github.com/NM-Radiopharmacology/FDG-NeuroSegmenter.git

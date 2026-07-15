@@ -1,6 +1,6 @@
 ## Acknowledgements
 
-##### Alzheimer’s Disease Neuroimaging Initiative (ADNI)
+#### Alzheimer’s Disease Neuroimaging Initiative (ADNI)
 Data collection and sharing for this project was funded by the Alzheimer's Disease Neuroimaging Initiative (ADNI) 
 (National Institutes of Health Grant U01 AG024904) and DOD ADNI (Department of Defense award number W81XWH-12-2-0012). 
 ADNI is funded by the National Institute on Aging, the National Institute of Biomedical Imaging and Bioengineering, and 
@@ -17,13 +17,13 @@ Institute for Research and Education, and the study is coordinated by the Alzhei
 the University of Southern California. ADNI data are disseminated by the Laboratory for Neuro Imaging at the University 
 of Southern California.
 
-##### Frontotemporal Lobar Degeneration Neuroimaging Initiative (FTLDNI/NIFD)
+#### Frontotemporal Lobar Degeneration Neuroimaging Initiative (FTLDNI/NIFD)
 Data collection and sharing for this project was funded by the Frontotemporal Lobar Degeneration Neuroimaging Initiative 
 (National Institutes of Health Grant R01 AG032306). The study is coordinated through the University of California, San 
 Francisco, Memory and Aging Center. FTLDNI data are disseminated by the Laboratory for Neuro Imaging at the University 
 of Southern California.
 
-##### National Alzheimer's Coordinating Center (NACC): Standardized Centralized Alzheimer’s & Related Dementias Neuroimaging (SCAN)
+#### National Alzheimer's Coordinating Center (NACC): Standardized Centralized Alzheimer’s & Related Dementias Neuroimaging (SCAN)
 The NACC database is funded by NIA/NIH Grant U24 AG072122. SCAN is a multi-institutional project that was funded as a 
 U24 grant (AG067418) by the National Institute on Aging in May 2020. Data collected by SCAN and shared by NACC are 
 contributed by the NIA-funded ADRCs as follows:
