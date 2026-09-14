@@ -14,8 +14,9 @@ framework. Ground-truth segmentations were obtained on the respectively paired T
 
 If you use FDG-NeuroSegmenter in your research, please cite our paper:
 
-L. C. Silva, F. P. M. Oliveira and D. C. Costa, "Brain Fluorodeoxyglucose PET Anatomical Segmentation Via AI: Extensive 
-Validation in the Neurodegenerative Spectrum", *Brain* (2026). https://doi.org/10.1093/brain/awag314
+> **Brain Fluorodeoxyglucose PET Anatomical Segmentation via AI: Extensive Validation in the Neurodegenerative Spectrum**  
+> Luísa C. Silva, Francisco P. M. Oliveira and Durval C. Costa, for the Alzheimer's Disease Neuroimaging Initiative, and for the Frontotemporal Lobar Degeneration Neuroimaging Initiative  
+> *Brain* (2026) https://doi.org/10.1093/brain/awag314
 
 ## Installation & Usage
 ‼️ Using a [virtual environment](https://docs.python.org/3/library/venv.html) is recommended!
