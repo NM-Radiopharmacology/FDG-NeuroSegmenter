@@ -2,8 +2,6 @@
 <b>FDG-NeuroSegmenter</b> is a deep-learning-based model developed to perform the automatic segmentation of 52 
 anatomical regions in brain [<sup>18</sup>F]FDG PET images.
 
-Please cite [REF!]
-
 <img src="/figures/fdg_brain_segmentation.png" alt="[18F]FDG PET brain anatomical segmentation" style="max-width: 95%; height: auto;">
 
 1736 brain [<sup>18</sup>F]FDG PET studies of 1197 subjects with and without cognitive impairments were used to train 
@@ -11,6 +9,13 @@ and test a deep-learning-based anatomical segmentation model via the [nnU-Net](h
 framework. Ground-truth segmentations were obtained on the respectively paired T1-weighted MRI studies using 
 [FastSurfer](https://github.com/Deep-MI/FastSurfer). All images belong to different neuroimaging initiatives 
 (please refer to the [Acknowledgements](#acknowledgements) section for more information).
+
+### Citation
+
+If you use FDG-NeuroSegmenter in your research, please cite our paper:
+
+L. C. Silva, F. P. M. Oliveira and D. C. Costa, "Brain Fluorodeoxyglucose PET Anatomical Segmentation Via AI: Extensive 
+Validation in the Neurodegenerative Spectrum", *Brain* (2026). https://doi.org/10.1093/brain/awag314
 
 ## Installation & Usage
 ‼️ Using a [virtual environment](https://docs.python.org/3/library/venv.html) is recommended!
@@ -21,9 +26,7 @@ framework. Ground-truth segmentations were obtained on the respectively paired T
 Only then:
 
 ```
-git clone https://github.com/NM-Radiopharmacology/FDG-NeuroSegmenter.git
-cd FDG-NeuroSegmenter
-pip install .
+pip install fdg-neurosegmenter
 ```
 
 ‼️ If you prefer to employ FDG-NeuroSegmenter using [nnU-Net](https://github.com/MIC-DKFZ/nnUNet)'s framework directly, 
