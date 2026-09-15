@@ -1,53 +1,53 @@
-Label,AnatomicalStruct
-1,superior_frontal_gyrus_left
-2,superior_frontal_gyrus_right
-3,orbitofrontal_cortex_left
-4,orbitofrontal_cortex_right
-5,dorsolateral_frontal_cortex_left
-6,dorsolateral_frontal_cortex_right
-7,paracentral_lobule_left
-8,paracentral_lobule_right
-9,postcentral_gyrus_left
-10,postcentral_gyrus_right
-11,dorsolateral_parietal_cortex_left
-12,dorsolateral_parietal_cortex_right
-13,precuneus_left
-14,precuneus_right
-15,anterior_cingulate_cortex_left
-16,anterior_cingulate_cortex_right
-17,posterior_cingulate_cortex_left
-18,posterior_cingulate_cortex_right
-19,isthmus_cingulate_cortex_left
-20,isthmus_cingulate_cortex_right
-21,lateral_temporal_cortex_left
-22,lateral_temporal_cortex_right
-23,mesial_temporal_cortex_left
-24,mesial_temporal_cortex_right
-25,lateral_occipital_cortex_left
-26,lateral_occipital_cortex_right
-27,pericalcarine_cortex_left
-28,pericalcarine_cortex_right
-29,lingual_gyrus_left
-30,lingual_gyrus_right
-31,cuneus_left
-32,cuneus_right
-33,insula_left
-34,insula_right
-35,cerebellar_cortex_left
-36,cerebellar_cortex_right
-37,thalamus_left
-38,thalamus_right
-39,caudate_left
-40,caudate_right
-41,putamen_left
-42,putamen_right
-43,globus_pallidus_left
-44,globus_pallidus_right
-45,brainstem_wo_pons
-46,pons
-47,hippocampus_left
-48,hippocampus_right
-49,amygdala_left
-50,amygdala_right
-51,ventral_diencephalon_left
-52,ventral_diencephalon_right
+Label,AnatomicalStruct,FastSurferLabels
+1,superior_frontal_gyrus_left,['1028']
+2,superior_frontal_gyrus_right,['2028']
+3,orbitofrontal_cortex_left,"['1012', '1014']"
+4,orbitofrontal_cortex_right,"['2012', '2014']"
+5,dorsolateral_frontal_cortex_left,"['1003', '1027', '1018', '1019', '1020', '1024']"
+6,dorsolateral_frontal_cortex_right,"['2003', '2027', '2018', '2019', '2020', '2024']"
+7,paracentral_lobule_left,['1017']
+8,paracentral_lobule_right,['2017']
+9,postcentral_gyrus_left,['1022']
+10,postcentral_gyrus_right,['2022']
+11,dorsolateral_parietal_cortex_left,"['1029', '1031', '1008']"
+12,dorsolateral_parietal_cortex_right,"['2029', '2031', '2008']"
+13,precuneus_left,['1025']
+14,precuneus_right,['2025']
+15,anterior_cingulate_cortex_left,"['1002', '1026']"
+16,anterior_cingulate_cortex_right,"['2002', '2026']"
+17,posterior_cingulate_cortex_left,['1023']
+18,posterior_cingulate_cortex_right,['2023']
+19,isthmus_cingulate_cortex_left,['1010']
+20,isthmus_cingulate_cortex_right,['2010']
+21,lateral_temporal_cortex_left,"['1030', '1034', '1015', '1009']"
+22,lateral_temporal_cortex_right,"['2030', '2034', '2015', '2009']"
+23,mesial_temporal_cortex_left,"['1006', '1007', '1016']"
+24,mesial_temporal_cortex_right,"['2006', '2007', '2016']"
+25,lateral_occipital_cortex_left,['1011']
+26,lateral_occipital_cortex_right,['2011']
+27,pericalcarine_cortex_left,['1021']
+28,pericalcarine_cortex_right,['2021']
+29,lingual_gyrus_left,['1013']
+30,lingual_gyrus_right,['2013']
+31,cuneus_left,['1005']
+32,cuneus_right,['2005']
+33,insula_left,['1035']
+34,insula_right,['2035']
+35,cerebellar_cortex_left,['8']
+36,cerebellar_cortex_right,['47']
+37,thalamus_left,['10']
+38,thalamus_right,['49']
+39,caudate_left,['11']
+40,caudate_right,['50']
+41,putamen_left,['12']
+42,putamen_right,['51']
+43,globus_pallidus_left,['13']
+44,globus_pallidus_right,['52']
+45,brainstem_wo_pons,['16']
+46,pons,['16']
+47,hippocampus_left,['17']
+48,hippocampus_right,['53']
+49,amygdala_left,['18']
+50,amygdala_right,['54']
+51,ventral_diencephalon_left,['28']
+52,ventral_diencephalon_right,['60']
