@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fdg-neurosegmenter"
-version = "1.0.0"
+version = "1.0.1"
 description = "AI-based anatomical segmentation and regional quantification of brain [18F]FDG PET acquisitions"
 readme = "README.md"
 authors = [{ name = "Luísa C. Silva" }]

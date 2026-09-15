@@ -210,10 +210,10 @@ the pons, to minimise the contribution of background/vicinity signal to the norm
 (`aparc.DKTatlas+aseg.mgz`) into the FDG-NeuroSegmenter template (label regrouping, resampling and dilation). Run:
 ```
 # Single mask conversion
-tools/convert_fastsurfer_masks.py -i /path/to/aparc.DKTatlas+aseg.deep.mgz -o output_mask.nii.gz
+python tools/convert_fastsurfer_masks.py -i /path/to/aparc.DKTatlas+aseg.deep.mgz -o output_mask.nii.gz
 
 # Batch directory conversion
-tools/convert_fastsurfer_masks.py -i /path/to/fastsurfer_masks/ -o /path/to/output_masks/
+python tools/convert_fastsurfer_masks.py -i /path/to/fastsurfer_masks/ -o /path/to/output_masks/
 ```
 <small>Please note that the pons is not output by FastSurfer and, thus, label 46 will be missing.</small>
 
