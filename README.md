@@ -33,7 +33,8 @@ pip install fdg-neurosegmenter
 
 ‼️ If you prefer to employ FDG-NeuroSegmenter using [nnU-Net](https://github.com/MIC-DKFZ/nnUNet)'s framework directly, 
 you can download the models by clicking 
-[here](https://huggingface.co/NM-Rph/FDG-NeuroSegmenter/resolve/main/Dataset505_FDGNeuroSeg.zip).
+[here](https://huggingface.co/NM-Rph/FDG-NeuroSegmenter/resolve/main/Dataset505_FDGNeuroSeg.zip) or by visiting our 
+[Hugging Face repository](https://huggingface.co/NM-Rph/FDG-NeuroSegmenter).
 
 ### Anatomical Segmentation ⟶ `fdg-neurosegmenter`
 
@@ -203,6 +204,18 @@ the cognitively normal cohort<sup>2</sup>.
 the pons, to minimise the contribution of background/vicinity signal to the normalisation constant.</small>
 
 <sup>2</sup> <small>537 [<sup>18</sup>F]FDG PET studies of 355 cognitively normal subjects.</small>
+
+### Additional Tools
+➡️ [tools/convert_fastsurfer_masks.py](tools/convert_fastsurfer_masks.py) can be used to convert FastSurfer masks 
+(`aparc.DKTatlas+aseg.mgz`) into the FDG-NeuroSegmenter template (label regrouping, resampling and dilation). Run:
+```
+# Single mask conversion
+tools/convert_fastsurfer_masks.py -i /path/to/aparc.DKTatlas+aseg.deep.mgz -o output_mask.nii.gz
+
+# Batch directory conversion
+tools/convert_fastsurfer_masks.py -i /path/to/fastsurfer_masks/ -o /path/to/output_masks/
+```
+<small>Please note that the pons is not output by FastSurfer and, thus, label 46 will be missing.</small>
 
 ## Acknowledgements
 
