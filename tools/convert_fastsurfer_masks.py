@@ -96,14 +96,24 @@ def process_single_file(input_path, output_path, label_mapping):
     remapped_img = nib.Nifti1Image(remapped_data, img.affine, img.header)
 
     # Resampling to 1.5 mm isotropic voxels
-    final_data, final_affine = resample_mask_to_isotropic(
+    resampled_data, final_affine = resample_mask_to_isotropic(
         remapped_img,
         target_spacing=(1.5, 1.5, 1.5)
     )
 
     # 1.5 mm label dilation
     if SKIMAGE_AVAILABLE:
-        final_data = expand_labels(final_data, distance=1.5, spacing=(1.5, 1.5, 1.5))
+        # excluding brainstem from dilation
+        brainstem_label = 45
+        brainstem_mask = (resampled_data == brainstem_label)
+        non_brainstem_mask = np.where(brainstem_mask, 0, resampled_data)
+        dilated_data = expand_labels(
+            non_brainstem_mask,
+            distance=1.5,
+            spacing=(1.5, 1.5, 1.5)
+        )
+        final_data = np.where(brainstem_mask, brainstem_label, dilated_data)
+        #final_data = expand_labels(final_data, distance=1.5, spacing=(1.5, 1.5, 1.5))
     else:
         raise ImportError(
             "scikit-image is required for label dilation. "

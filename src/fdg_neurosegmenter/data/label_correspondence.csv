@@ -44,7 +44,7 @@ Label,AnatomicalStruct,FastSurferLabels
 43,globus_pallidus_left,['13']
 44,globus_pallidus_right,['52']
 45,brainstem_wo_pons,['16']
-46,pons,['16']
+46,pons,""
 47,hippocampus_left,['17']
 48,hippocampus_right,['53']
 49,amygdala_left,['18']
