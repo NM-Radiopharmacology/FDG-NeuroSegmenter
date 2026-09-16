@@ -113,7 +113,6 @@ def process_single_file(input_path, output_path, label_mapping):
             spacing=(1.5, 1.5, 1.5)
         )
         final_data = np.where(brainstem_mask, brainstem_label, dilated_data)
-        #final_data = expand_labels(final_data, distance=1.5, spacing=(1.5, 1.5, 1.5))
     else:
         raise ImportError(
             "scikit-image is required for label dilation. "
